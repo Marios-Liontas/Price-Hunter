@@ -14,7 +14,7 @@ const Header = () => {
             <div className='container mx-auto flex items-center justify-between'>
                 
                 <div className=' flex items-center gap-2'>
-                    <img src="/public/price-hunter-logo.jpg" alt="" className='w-13 h-12' />
+                    <img src="/price-hunter-logo.jpg" alt="" className='w-13 h-12' />
                     <h1 className='text-2xl font-bold'>
                         Price Hunter
                     </h1>
