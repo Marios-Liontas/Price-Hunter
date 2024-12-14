@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import Deals from './pages/Deals';
+import SearchResults from './pages/SearchResults';
 
 //Page importing here
 
@@ -25,6 +26,16 @@ const App = () => {
           element={
             <Layout>
               <Deals />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/search"
+          element={
+            <Layout>
+              <SearchResults
+              />
             </Layout>
           }
         />

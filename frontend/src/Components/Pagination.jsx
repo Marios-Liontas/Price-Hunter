@@ -46,7 +46,7 @@ const Pagination = ({ page, pages, onPageChange }) => {
                 </ul>
             </div>
             <div className="flex justify-center pt-2">
-                <input type="text" placeholder="Enter page number" className="border-slate-200" />
+                <input type="text" placeholder="Enter page number here" className="border-slate-200" />
             </div>
         </>
     );
