@@ -38,12 +38,12 @@ const SearchResults = () => {
     }, [searchQuery, location.key]); // Listen to changes in `searchQuery` or `location.key`
 
     return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-center text-2xl font-bold mb-4">
+        <div className="container mx-auto p-4 bg-gray-900 text-white">
+            <h1 className="text-center text-2xl font-bold mb-4 text-orange-500">
                 Search Results for "{searchQuery}"
             </h1>
 
-            {loading && <p>Loading...</p>}
+            {loading && <p className="text-orange-400">Loading...</p>}
             {error && <p className="text-red-500">{error}</p>}
 
             {results.length > 0 && (
@@ -51,20 +51,23 @@ const SearchResults = () => {
                     {results.map((deal) => (
                         <div
                             key={deal.gameID}
-                            className="p-4 border rounded-md shadow-md hover:shadow-lg transition duration-300"
+                            className="p-4 border border-gray-800 rounded-md shadow-md hover:shadow-lg transition duration-300 bg-gray-800"
                         >
                             <img
                                 src={deal.thumb}
                                 alt={deal.title}
-                                className="w-24 h-28 object-fit mb-2 filter contrast-110"
+                                className="w-24 h-28 object-contain mb-2 filter contrast-110"
                             />
-                            <h3 className="text-lg font-bold">{deal.title}</h3>
+                            <h3 className="text-lg font-bold text-orange-500">{deal.title}</h3>
                             <p>
-                                <span className="text-green-600 flex gap-1">
+                                <span className="flex gap-1">
                                     <span className="line-through text-gray-500">
                                         €{deal.normalPrice}
                                     </span>{" "}
-                                    €{deal.salePrice}
+                                    <span className="text-orange-500">
+                                        €{deal.salePrice}
+                                    </span>
+                                    
                                 </span>
                             </p>
                             <p className="text-sm text-gray-400">
@@ -78,7 +81,7 @@ const SearchResults = () => {
                                 href={`https://www.cheapshark.com/redirect?dealID=${deal.cheapestDealID}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-500 hover:underline"
+                                className="text-orange-400 hover:text-orange-500 underline"
                             >
                                 View Deal
                             </a>
@@ -88,7 +91,7 @@ const SearchResults = () => {
             )}
 
             {results.length === 0 && !loading && !error && searchQuery.trim() && (
-                <p>No results found for "{searchQuery}".</p>
+                <p className="text-orange-400">No results found for "{searchQuery}".</p>
             )}
         </div>
     );

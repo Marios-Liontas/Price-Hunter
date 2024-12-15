@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import Deals from './pages/Deals';
 import SearchResults from './pages/SearchResults';
+import Home from './pages/Home';
 
 //Page importing here
 
@@ -16,7 +17,7 @@ const App = () => {
           path='/'
           element={
             <Layout>
-              Home Page
+              <Home/>
             </Layout>
           }
         />

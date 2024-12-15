@@ -64,38 +64,40 @@ const Deals = () => {
     }
   };
 
-  if (loading) return <p>Loading deals...</p>;
+  if (loading) return <p className="text-orange-500">Loading deals...</p>;
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
-    <div className="p-4">
+    <div className="p-4 bg-gray-900 text-white">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {deals.map((deal) => (
           <div
             key={deal.dealID}
-            className="p-4 border rounded shadow hover:shadow-lg transition"
+            className="p-4 border border-gray-800 rounded shadow-md hover:shadow-lg bg-gray-800 transition"
           >
             <img
               src={deal.thumb}
               alt={deal.title}
-              className="w-24 h-28 object-fit mb-2 filter contrast-110"
+              className="w-24 h-28 object-contain mb-2 filter contrast-125"
             />
-            <h3 className="text-lg font-bold">{deal.title}</h3>
+            <h3 className="text-lg font-bold text-orange-500">{deal.title}</h3>
             <p>
               <span className="line-through text-gray-500">
                 €{deal.normalPrice}
               </span>{" "}
-              <span className="text-green-600">€{deal.salePrice}</span>
+              <span className="text-orange-500">€{deal.salePrice}</span>
             </p>
             <p className="text-sm text-gray-400">
               Savings: {deal.savings ? `${Number(deal.savings).toFixed(2)}%` : "N/A"}
             </p>
-            <p className="text-sm text-gray-500">Store: {storeNames[deal.storeID] || "Unknown"}</p>
+            <p className="text-sm text-gray-500">
+              Store: {storeNames[deal.storeID] || "Unknown"}
+            </p>
             <a
               href={`https://www.cheapshark.com/redirect?dealID=${deal.dealID}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
+              className="text-orange-400 hover:text-orange-500 underline"
             >
               View Deal
             </a>
@@ -119,11 +121,11 @@ const Deals = () => {
             type="text"
             value={inputPage}
             onChange={handleInputChange}
-            className="border-2 border-gray-300 rounded-md p-2 mr-2 w-20 text-center"
+            className="border-2 border-gray-700 rounded-md p-2 mr-2 w-20 text-center bg-gray-800 text-white"
           />
           <button
             type="submit"
-            className="bg-slate-700 text-white px-4 py-2 rounded-md hover:bg-slate-900"
+            className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600"
           >
             Go
           </button>
