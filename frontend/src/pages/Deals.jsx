@@ -64,7 +64,7 @@ const Deals = () => {
     }
   };
 
-  if (loading) return <p className="text-orange-500">Loading deals...</p>;
+  if (loading) return <p className="text-lime-400">Loading deals...</p>;
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
@@ -80,12 +80,12 @@ const Deals = () => {
               alt={deal.title}
               className="w-24 h-28 object-contain mb-2 filter contrast-125"
             />
-            <h3 className="text-lg font-bold text-orange-500">{deal.title}</h3>
+            <h3 className="text-lg font-bold text-lime-400">{deal.title}</h3>
             <p>
               <span className="line-through text-gray-500">
                 €{deal.normalPrice}
               </span>{" "}
-              <span className="text-orange-500">€{deal.salePrice}</span>
+              <span className="text-lime-400">€{deal.salePrice}</span>
             </p>
             <p className="text-sm text-gray-400">
               Savings: {deal.savings ? `${Number(deal.savings).toFixed(2)}%` : "N/A"}
@@ -97,7 +97,7 @@ const Deals = () => {
               href={`https://www.cheapshark.com/redirect?dealID=${deal.dealID}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-orange-400 hover:text-orange-500 underline"
+              className="text-lime-400 hover:text-lime-500 underline"
             >
               View Deal
             </a>
@@ -125,7 +125,7 @@ const Deals = () => {
           />
           <button
             type="submit"
-            className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600"
+            className="bg-lime-400 text-black px-4 py-2 rounded-md hover:bg-lime-500"
           >
             Go
           </button>

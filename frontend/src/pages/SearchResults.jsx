@@ -39,11 +39,11 @@ const SearchResults = () => {
 
     return (
         <div className="container mx-auto p-4 bg-gray-900 text-white">
-            <h1 className="text-center text-2xl font-bold mb-4 text-orange-500">
+            <h1 className="text-center text-2xl font-bold mb-4 text-lime-400">
                 Search Results for "{searchQuery}"
             </h1>
 
-            {loading && <p className="text-orange-400">Loading...</p>}
+            {loading && <p className="text-lime-400">Loading...</p>}
             {error && <p className="text-red-500">{error}</p>}
 
             {results.length > 0 && (
@@ -58,16 +58,15 @@ const SearchResults = () => {
                                 alt={deal.title}
                                 className="w-24 h-28 object-contain mb-2 filter contrast-110"
                             />
-                            <h3 className="text-lg font-bold text-orange-500">{deal.title}</h3>
+                            <h3 className="text-lg font-bold text-lime-400">{deal.title}</h3>
                             <p>
                                 <span className="flex gap-1">
                                     <span className="line-through text-gray-500">
                                         €{deal.normalPrice}
                                     </span>{" "}
-                                    <span className="text-orange-500">
+                                    <span className="text-lime-400">
                                         €{deal.salePrice}
                                     </span>
-                                    
                                 </span>
                             </p>
                             <p className="text-sm text-gray-400">
@@ -81,7 +80,7 @@ const SearchResults = () => {
                                 href={`https://www.cheapshark.com/redirect?dealID=${deal.cheapestDealID}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-orange-400 hover:text-orange-500 underline"
+                                className="text-lime-400 hover:text-lime-500 underline"
                             >
                                 View Deal
                             </a>
@@ -91,7 +90,7 @@ const SearchResults = () => {
             )}
 
             {results.length === 0 && !loading && !error && searchQuery.trim() && (
-                <p className="text-orange-400">No results found for "{searchQuery}".</p>
+                <p className="text-lime-400">No results found for "{searchQuery}".</p>
             )}
         </div>
     );

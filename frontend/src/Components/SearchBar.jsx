@@ -46,11 +46,11 @@ const SearchBar = () => {
                         value={searchInput}
                         onChange={handleInputChange}
                         placeholder="Search for games..."
-                        className="px-4 py-2 w-full border border-gray-700 rounded-l-md focus:outline-none focus:ring-2 focus:ring-orange-500 bg-gray-800 text-gray-300 placeholder-gray-400"
+                        className="px-4 py-2 w-full border border-gray-700 rounded-l-md focus:outline-none focus:ring-2 focus:ring-lime-400 bg-gray-800 text-gray-300 placeholder-gray-400"
                     />
                     <button
                         type="submit"
-                        className="ml-2 bg-orange-500 text-white px-4 py-2 rounded-r-md hover:bg-orange-600"
+                        className="ml-2 bg-lime-400 text-black px-4 py-2 rounded-r-md hover:bg-lime-500"
                     >
                         Search
                     </button>
