@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as apiClient from '../api-client';
 import { useNavigate } from 'react-router-dom';
-import { storeNames } from '../../shared/storeNames';
+import {storeNames} from '../../shared/storeNames';
 
 const Home = () => {
   const [featuredDeals, setFeaturedDeals] = useState([]);

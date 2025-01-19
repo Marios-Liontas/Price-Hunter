@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const CHEAPSHARK_API_BASE = import.meta.env.VITE_CHEAPSHARK_API_BASE
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
 export const fetchDeals = async (pageNumber, pageSize) => {
     try {
@@ -23,3 +24,69 @@ export const searchGames = async (nameOfGame) => {
         throw new Error('Cannot fetch Game, something went wrong!');
     }
 }
+
+export const registerUser = async (formData) => {
+    const response = await fetch(`${API_BASE_URL}/api/auth/register`,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData),
+            credentials:"include"
+        });
+    
+    const responseBody = await response.json();
+
+    if (!response.ok) {
+        throw new Error(responseBody.message);
+    }
+
+    return responseBody;
+};
+
+
+export const loginUser = async (data) => {
+    const response = await fetch(`${API_BASE_URL}/api/auth/login`,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data),
+            credentials:"include"
+        });
+    
+    const responseBody = await response.json();
+
+    if (!response.ok) {
+        throw new Error(responseBody.message);
+    }
+
+    return responseBody; // return the response data
+};
+
+
+
+export const validateToken = async () => {
+    const response = await fetch(`${API_BASE_URL}/api/validate-token`, {
+        credentials: "include"
+    });
+    if (!response.ok) {
+        throw new Error("Token invalid");
+    }
+
+    return response.json();
+};
+
+
+export const SignOut = async () => {
+    const response = await fetch(`${API_BASE_URL}/api/logout`, {
+        credentials: "include",
+        method: "POST"
+    });
+
+    if (!response.ok) {
+        throw new Error("Error during sign out");
+    }
+};
